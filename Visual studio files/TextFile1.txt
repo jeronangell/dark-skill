@@ -1,0 +1,51 @@
+luck 2
+a8=3
+d6=3
+c2=2
+
+evasive man 2
+d3=2
+d5=>3
+
+shield mech
+d4=3
+
+ship hull 2
+d2=2
+
+evasive 1
+c2+a2=>2
+
+bounty hunt 2
+a3=2
+a7+c6=>3
+elect
+d5+c5+a6=>5
+
+tractor 2
+d5+c5+a6=>5
+
+greed
+a[5]+c[4]=3;
+
+det 2
+needs 
+'det 1'=3 a[0]=3
+a[5]+c[4]=3;
+
+tractor 1
+d4+c3+a4 is>1
+
+Alien hunt
+ifc[3]<2
+c[3]=2
+if a[4]<2
+a[4]=2
+
+cruality 1
+d4+c3+a4 is =>2
+
+luck 1
+c1=>2
+
+rocket fusion
