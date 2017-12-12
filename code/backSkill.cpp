@@ -41,7 +41,7 @@ void totalclk(int &item, int max, int &item1, int max1, int &item2, int max2, in
 	if (item + item1 + item2<total) {
 		cout << "you have " << total << " pilot points to place in " << name << " or " << name1 << " (whatever you don’t place will be allocated to "<<name2<<"\n";
 		cout << "How many do you want to place in " << name << "\n";
-		cout << "Allocate Piolet points:";
+		cout << "Allocate Pilot points:";
 		cin >> item;
 		if (item>max) {
 			item = max;
@@ -74,7 +74,7 @@ void totalclk(int &item, int max, int &item1, int max1, int &item2, int max2, in
 					item1 += total - max2;
 				}
 
-				cout << item2 << " Piolet points were placed in " << name2;
+				cout << item2 << " Pilot points were placed in " << name2;
 				cout << "\n\n\n";
 			}
 			if (item2) {
@@ -94,7 +94,7 @@ void totalclk(int &itnum, int &itnum2, int total, string name1, string name2) {
 			itnum = total;
 
 		itnum2 = total - itnum;
-		cout <<endl<< itnum2 << " Piolet points were placed in " << name2 << "\n";
+		cout <<endl<< itnum2 << " Pilot points were placed in " << name2 << "\n";
 	}
 }
 // this prompts the user to pick a place to put your point.
@@ -123,7 +123,7 @@ void pickone(int &d, int &c, int &a, string dname, string cname, string aname) {
 }
 // helps the user fulfil the requirements for evasive maneuvers and any other item that helps with defense.
 void defenseCalk(int d[][7], int c[][9], int a[][9], string dname[], string cname[], string aname[]) {
-	string Poilet = "piolet points";
+	string Poilet = "Pilot points";
 	if (d[0][6] != 0) {
 
 		setpnt(d[0][3], 2, dname[3]);
@@ -186,7 +186,7 @@ void attackCalk(int d[][7], int c[][9], int a[][9], string dname[], string cname
 	}
 
 }
-//prompts the user to place piolet points in an upgrade item
+//prompts the user to place Pilot points in an upgrade item
 void setPoiletPnts(int &chang, int max, string name) {
 	cout << "Place desired amount in " << name << " (you may place no more than " << max << ")\n";
 	cout << "allocate Pilot points:";
@@ -442,7 +442,7 @@ string arrTostring(int d[], int c[], int a[], string dname[], string cname[], st
 		}
 		cout << "\n";
 	}
-	cout << "The total piolet points used were " << totpnt << "\n\n";
+	cout << "The total Pilot points used were " << totpnt << "\n\n";
 	return rst;
 }
 
@@ -456,17 +456,19 @@ int main(int argc, char *argv[]) {
 	int c[2][9] = { { 0 },{ 5,5,2,2,5,5,5,3,3 } };
 	int a[2][9] = { { 0 },{ 2,5,5,2,5,5,3,5,3 } };
 	int selection = 1;
-	while (selection == 1 || selection == 2 || selection == 3)
+	while (selection == 1 || selection == 2 || selection == 3||selection==4)
 	{
 		int totPPnt = 0;
 		int d[2][7] = { { 0 },{ 2,5,5,2,3,5,3 } };
 		int c[2][9] = { { 0 },{ 5,5,2,2,5,5,5,3,3 } };
 		int a[2][9] = { { 0 },{ 2,5,5,2,5,5,3,5,3 } };
 		//prompts the user to choose one of the fallowing
+		cout << "it is advised to use www.darkskill.info as a reference.";
 		cout << "1: Open document\n";
 		cout << "2: Build skill tree\n";
 		cout << "3: Delete file\n";
-		cout << "4: End\n";
+		cout<<"4: Help";
+		cout << "5: End\n";
 		cout << "Selection: ";
 		selection=getNumber();
 		if (selection == 1) {
@@ -475,7 +477,7 @@ int main(int argc, char *argv[]) {
 			arrTostring(d[0], c[0], a[0], dname, cname, aname);
 		}
 		if (selection == 2) {
-			//prompts the user to place piolet points in the 4 main items
+			//prompts the user to place Pilot points in the 4 main items
 			setPoiletPnts(d[0][6], d[1][6], dname[6]);
 			setPoiletPnts(c[0][8], c[1][8], cname[8]);
 			setPoiletPnts(a[0][8], a[1][8], aname[8]);
@@ -507,7 +509,9 @@ int main(int argc, char *argv[]) {
 			//alows the user to delete a file.
 			deleteFile();
 		}
-
+		if(selection==4)
+			cout<<"\n This program allows you to build a Darkorbit skill tree backwards read carefully.\n it is advised to use www.darkskill.info as a reference.";
 	}
 }
 }
+
