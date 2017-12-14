@@ -39,7 +39,7 @@ void totalclk(int &item, int max, int &item1, int max1, int &item2, int max2, in
 
 	int totAlo = total;
 	if (item + item1 + item2<total) {
-		cout << "you have " << total << " pilot points to place in " << name << " or " << name1 << " (whatever you don’t place will be allocated to "<<name2<<"\n";
+		cout << "you have " << total << " pilot points to place in " << name << " or " << name1 << " (whatever you don’t place will be allocated to "<<name2<< " anny more and stat will be set to "<<total<<")\n";
 		cout << "How many do you want to place in " << name << "\n";
 		cout << "Allocate Pilot points:";
 		cin >> item;
@@ -87,7 +87,7 @@ void totalclk(int &item, int max, int &item1, int max1, int &item2, int max2, in
 void totalclk(int &itnum, int &itnum2, int total, string name1, string name2) {
 	if (itnum + itnum2<total) {
 
-		cout << "You have " << total << " pilot points to place in " << name1 << " (the remainder will be placed in " << name2 << ")\n";
+		cout << "You have " << total << " pilot points to place in " << name1 << " (the remainder will be placed in " << name2 << " anny more and stat will be set to " << total << ")\n";
 		cout << "Allocate pilot points:";
 		itnum=getNumber();
 		if (itnum>total)
@@ -188,7 +188,7 @@ void attackCalk(int d[][7], int c[][9], int a[][9], string dname[], string cname
 }
 //prompts the user to place Pilot points in an upgrade item
 void setPoiletPnts(int &chang, int max, string name) {
-	cout << "Place desired amount in " << name << " (you may place no more than " << max << ")\n";
+	cout << "Place desired amount in " << name << " (you may place no more than " << max << " anny more and stat will be set to "<<max<<")\n";
 	cout << "allocate Pilot points:";
 	chang=getNumber();
 	if (chang>max)
@@ -445,12 +445,23 @@ string arrTostring(int d[], int c[], int a[], string dname[], string cname[], st
 	cout << "The total Pilot points used were " << totpnt << "\n\n";
 	return rst;
 }
-
+inline bool exists_test0 (const string name) {
+	ifstream f(name.c_str());
+	return f.good();
+}
 int main(int argc, char *argv[]) {
 	// initialize the information needed
 	string dname[7] = { "\"Ship hull 1\"", "\"Engineering\"","\"Shield engineering\"", "\"Evasive maneuvers 1\"","\"Ship hull 2\"", "\"Shield mechanics\"", "\"Evasive maneuvers 2\"" };
 	string cname[9] = { "\"Tactics\"","\"Logistics\"", "\"Luck 1\"", "\"Cruelty 1\"","\"Tractor beam 1\"", "\"Greed\"","\"Tractor beam 2\"","\"Cruelty 2\"", "\"luck 2\"" };
 	string aname[9] = { "\"Detonation 1\"", "\"Explosives\"", "\"Heat-seeking missiles\"", "\"Bounty hunter 1\"","\"Rocket fusion\"", "\"Alien hunter\"",  "\"Detonation 2\"","\"Electro-optics\"","\"Bounty hunter 2\"" };
+	if(!exists_test0 ("file")){
+		ofstream newfile("colecting", ios_base::ate);
+		newfile<<"2022353\n022000303\n000200003";
+		newfile.close();
+		newfile.open("file.txt");
+		newfile<<"colecting";
+		newfile.close();
+	}
 	int totPPnt = 0;
 	int d[2][7] = { { 0 },{ 2,5,5,2,3,5,3 } };
 	int c[2][9] = { { 0 },{ 5,5,2,2,5,5,5,3,3 } };
@@ -463,11 +474,11 @@ int main(int argc, char *argv[]) {
 		int c[2][9] = { { 0 },{ 5,5,2,2,5,5,5,3,3 } };
 		int a[2][9] = { { 0 },{ 2,5,5,2,5,5,3,5,3 } };
 		//prompts the user to choose one of the fallowing
-		cout << "it is advised to use www.darkskill.info as a reference.";
+		cout << "it is advised to use www.darkskill.info as a reference.\n";
 		cout << "1: Open document\n";
 		cout << "2: Build skill tree\n";
 		cout << "3: Delete file\n";
-		cout<<"4: Help";
+		cout<<"4: Help\n";
 		cout << "5: End\n";
 		cout << "Selection: ";
 		selection=getNumber();
